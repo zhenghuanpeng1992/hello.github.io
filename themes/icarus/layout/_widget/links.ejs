@@ -1,0 +1,16 @@
+﻿<% if (site.posts.length){ %>
+  <div class="widget-wrap widget-list">
+    <h3 class="widget-title"><%= __('widget.links') %></h3>
+    <div class="widget">
+      <ul>
+        <% for (var i in theme.links){ %>
+          <li><a href="http://blog.csdn.net/bbld_/" target="_britt" title="http://blog.csdn.net/bbld_/">我的CSDN博客</a></li>
+	  	  <li><a href="http://www.devtf.cn/" target="_xiaojiang" title="http://www.devtf.cn">开发技术前线</a></li>
+	  	  <li><a href="http://www.jiangwenrou.com/" target="_xiaojiang" title="http://www.jiangwenrou.com">小蒋的博客</a></li>
+	  	  <li><a href="http://gold.xitu.io/" target="_xitu_gold" title="http://gold.xitu.io/">稀土掘金</a></li>
+	  	  <li><a href="http://brittyu.github.io/" target="_britt" title="http://brittyu.github.io">Brittyu</a></li>
+        <% } %>
+      </ul>
+    </div>
+  </div>
+<% } %>
