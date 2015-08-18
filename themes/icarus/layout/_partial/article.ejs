@@ -22,10 +22,9 @@
           </p>
         <% } %>
       <% } else { %>
-        <!-- Table of Contents -->
-<% if (!index && post.toc){ %>
-  <div id="toc" class="toc-article">
-    <strong class="toc-title"><%= __('article.catalogue') %></strong>
+                <% if (!index && post.toc){ %>
+                    <div id="toc" class="toc-article">
+                    <strong class="toc-title"><%= __('article.catalogue') %></strong>
     <%- toc(post.content) %>
   </div>
 <% } %>
