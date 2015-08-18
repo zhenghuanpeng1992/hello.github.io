@@ -2,16 +2,13 @@ title: "About Rocko"
 layout: "about"
 date: 2014-11-25 21:30:16
 thumbnail: 
-banner: http://rocko-blog.qiniudn.com/lollipop-1024.jpg
+banner: http://rocko-blog.qiniudn.com/androidv.jpg
 ---
  
 <br/>
 
-``` Java
-while(true) {
-    rocko.makeGoodApp();
-    //...
-}
+``` wtf
+// coding
 ```
   
 
