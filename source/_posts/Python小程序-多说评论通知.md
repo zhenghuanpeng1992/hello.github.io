@@ -11,7 +11,7 @@ toc: true
 
 ## 撸码
 
-#### 配置
+### 配置
 方便他人修改使用。
 ``` bash
 [email_info]
@@ -28,7 +28,7 @@ secret = 多说的秘钥，在后台的设置查看
 period = 定时检查评论的时间（s）
 ```
 
-#### Python代码
+### Python代码
 代码比较简单，已加注释。用到多说的接口是这个，[实时同步评论回本地数据库](http://dev.duoshuo.com/docs/50037b11b66af78d0c000009)。需要注意的是在后台操作和文章有新评论时就会产生log的json数据返回，返回的数据可以去它的文档看一下，然后就找自己感兴趣的数据了，做为我们判断是否是文章有评论而不是自己在后台产生的是`action`这个字段，为**create**时就是我们要的。还有就是请求时的`limit`参数，文档上说默认是50，所以如果你没加使用了默认而你的log数>50时那就只能获取到50条了，不过是<200但我使用>200时区请求是没有问题的。
 
 <!--more-->
@@ -139,7 +139,7 @@ if __name__ == '__main__':
     monitor()
 ```
 
-#### 开机自启
+### 开机自启
 
 在自己的VPS里往Linux系统的`/etc/rc.local`里的`exit 0`前加上启动程序的命令
 ``` bash
@@ -147,7 +147,7 @@ nohup python your_path/ds.py &
 ```
 Windows的开机自启动方法，[戳我](http://www.cnblogs.com/MikeZhang/archive/2013/02/04/pythonautorunwindows20130204.html)。
 
-#### 测试效果
+### 测试效果
 ![测试效果](http://rocko-blog.qiniudn.com/Python小程序-多说评论通知-1.png)
 
 ## End

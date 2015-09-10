@@ -2,10 +2,10 @@ title: Android 错误集锦ing...
 date: 2015-02-05 13:44:42
 category: Android
 tags: [错误]
-toc: true
+
 ---
 Fork from my csdn blog: [Android 错误集锦(ing...)](http://blog.csdn.net/bbld_/article/details/39520249).
-Last update time: *2015-2-5 13:46:03*.   
+Last update time: *2015-8-22 14:47:39*.   
    
 
 温馨提示：`Ctrl+F查找`
@@ -378,6 +378,22 @@ ZoomButtonsController 造成了内存泄露，在 onDestroy 中把其注销：
         super.onDestroy();
         zoomButtonsController.setVisible(false);
     }
+```
+
+---
+
+**系统环境：**
+Ubuntu 14.04 64 位 Android Studio 1.3.1
+**问题描述：**
+Android 系统源码（AOSP）导入 Android Studio 问题, idegen.jar 已经生成，但是执行生成项目文件的脚本一直报错。
+**错误提示：**
+``` Bash
+Couldn't find idegen.jar. Please run make first.
+```
+**解决方案：**
+可以直接在 `源码路径` 下执行 idegen.jar 的命令，`idegen.jar` 的路径换成你的位置
+``` Bash
+java -cp /repo/aosp/output/android-5.1.1_r12/host/linux-x86/framework/idegen.jar Main
 ```
 
 ---

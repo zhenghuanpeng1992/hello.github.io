@@ -16,7 +16,7 @@ banner: http://rocko-blog.qiniudn.com/androidv.jpg
 
 - **Email**
  [rocko.zxp@gmail.com](mailto:rocko.zxp@gmail.com)
- [rocko@zhengxiaopeng.com](mailto:rocko@zhengxiaopeng.com)   
+ [rocko@zhengxiaopeng.com](mailto:me@rocko.xyz)   
 
 - **Link**
  [CSDN blog](http://blog.csdn.net/bbld_)  

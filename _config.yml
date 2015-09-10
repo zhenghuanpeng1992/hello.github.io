@@ -13,7 +13,7 @@ since: 2014
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://zhengxiaopeng.com
+url: http://rocko.xyz
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
@@ -68,7 +68,7 @@ theme: icarus
 
 ######################## hexo-theme-icarus #############################
 
-avatar: /bin/avatar.png
+avatar: /img/avatar.png
 location: 'Shenzhen & Guangzhou, China'
 #follow: https://github.com/zhengxiaopeng/ #改为 High一下
 duoshuo_shortname: rocko

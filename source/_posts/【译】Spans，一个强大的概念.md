@@ -6,7 +6,7 @@ thumbnail: http://rocko-blog.qiniudn.com/Spans%EF%BC%8C%E4%B8%80%E4%B8%AA%E5%BC%
 toc: true
 ---
 
-## 前言
+### 前言
 
 原文：[Spans, a Powerful Concept.](http://flavienlaurent.com/blog/2014/01/31/spans/)
 
@@ -17,7 +17,7 @@ toc: true
 
 <!--more-->
 
-## 框架
+### 框架
 
 #### 层次
 
@@ -34,7 +34,7 @@ toc: true
 ![updatelayout](http://rocko-blog.qiniudn.com/Spans，一个强大的概念-4.png)
 因为它有一点复杂所以我建议你使用像这样的可视化类图，以充分理解它的层次结构。
 
-## 它是如何工作的?
+### 它是如何工作的?
 
 #### 布局（Layout）
 
@@ -65,7 +65,7 @@ TextLine类包含3个Spans的集合：
 如果你想知道更多什么是字体规格，那么看下面的图解：
 ![fontmetrics](http://rocko-blog.qiniudn.com/Spans，一个强大的概念-5.png)
 
-## 耍起来
+### 耍起来
 
 #### BulletSpan
 [android.text.style.BulletSpan](http://developer.android.com/reference/android/text/style/BulletSpan.html)
@@ -296,7 +296,7 @@ span = new MaskFilterSpan(new EmbossMaskFilter(new float[] { 1, 1, 1 }, 0.4f, 6,
 ![MaskFilterSpan的效果图: BlurMaskFilter](http://rocko-blog.qiniudn.com/Spans，一个强大的概念-22.png?imageView2/2/w/400/h/300/q/100)
 ![MaskFilterSpan的效果图: EmbossMaskFilter](http://rocko-blog.qiniudn.com/Spans，一个强大的概念-23.png?imageView2/2/w/400/h/300/q/100)
 
-## Spans进阶
+### Spans进阶
 
 #### 前景色（文字颜色）动画
 
@@ -530,5 +530,5 @@ Sample app包含了一些Spans进阶的例子，如下：
 ![Progressive blur](http://rocko-blog.qiniudn.com/Spans，一个强大的概念-26.gif?imageView2/2/w/400/h/300/q/100)
 ![Typewriter](http://rocko-blog.qiniudn.com/Spans，一个强大的概念-27.gif?imageView2/2/w/400/h/300/q/100)
 
-## 总结
+### 总结
 在编写这篇文章的过程中，我意识到Spans是真的像Drawable那样强大的，我认为它们还没有被充分运用。文本是一个应用程序的主要内容，它无处不在，所以不要忘记，通过Spans让它变得更具活力和吸引力！

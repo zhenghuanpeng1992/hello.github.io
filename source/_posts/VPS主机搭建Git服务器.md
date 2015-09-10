@@ -13,7 +13,7 @@ toc: true
 <!--more-->
  
 ## 错误
-在VPS上按标准教程搭建好服务器上的Git服务后，兴高采烈地在自己电脑上(`Windows7 64`，如果你同样使用Windows而且使用SSH遇到问题那么可以看看我的这篇博客：[Git 错误集锦ing...](http://zhengxiaopeng.com/2014/11/25/Git-%E9%94%99%E8%AF%AF%E9%9B%86%E9%94%A6ing/))clone了服务器上的repo后，然后就出错误了（如果你也是用VPS搭建而使用其它操作系统客户端的话可能也是会遇到）：
+在VPS上按标准教程搭建好服务器上的Git服务后，兴高采烈地在自己电脑上(`Windows7 64`，如果你同样使用Windows而且使用SSH遇到问题那么可以看看我的这篇博客：[Git 错误集锦ing...](http://rocko.xyz/2014/11/25/Git-%E9%94%99%E8%AF%AF%E9%9B%86%E9%94%A6ing/))clone了服务器上的repo后，然后就出错误了（如果你也是用VPS搭建而使用其它操作系统客户端的话可能也是会遇到）：
 ``` bash
 Cloning into 'sample'...
 ssh: connect to host 104.224.xxx.xx port 22: Bad file number
