@@ -14,11 +14,12 @@ banner: http://rocko-blog.qiniudn.com/androidv.jpg
 
 <br/>
 
-- **Email**
+- <i class="fa fa-envelope"></i> **email** 
  [rocko.zxp@gmail.com](mailto:rocko.zxp@gmail.com)
- [rocko@zhengxiaopeng.com](mailto:me@rocko.xyz)   
+ [me@rocko.xyz](mailto:me@rocko.xyz)   
 
-- **Link**
+- <i class="fa fa-link"></i>  **link** 
+ [zhengxiaopeng.com](http://zhengxiaopeng.com) <i class="fa fa-times"></i>
  [CSDN blog](http://blog.csdn.net/bbld_)  
  [Github](https://github.com/zhengxiaopeng)
  [Weibo](http://weibo.com/678662430)
@@ -33,16 +34,16 @@ banner: http://rocko-blog.qiniudn.com/androidv.jpg
  [Reddit](https://www.reddit.com/user/RockoZZ/)
 
 
-- **Location**
+- <i class="fa fa-map-marker"></i> **location** 
  Shenzhen & Guangzhou, China
 
-- **University**
+- <i class="fa fa-graduation-cap"></i> **university** 
  GDUT
 
-- **Status**
+- <i class="fa fa-user"></i> **status** 
  Student
 
-- 打赏我
+- <i class="fa fa-credit-card"></i> **打赏我**
 	如果觉得我的博客，或者我的分享对您有帮助，不妨随意打赏下吧，我将更有动力。
 	
 	![支付宝||微信](http://rocko-blog.qiniudn.com/zhifubao_weixin.jpg?imageView2/2/w/800/h/400/q/100)
