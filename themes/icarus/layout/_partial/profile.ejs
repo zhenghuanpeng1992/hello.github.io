@@ -180,13 +180,13 @@
       <%= __('profile.follow') %></a>
     </div>
     <div class="article-info profile-block">
-      <div class="article-info-block"> 
+      <div class="article-info-block">
         <%= site.posts.length %>
         <span><%= (site.posts.length > 1 ? __('profile.posts') : __('profile.post')) %></span>
       </div>
       <div class="article-info-block">
-        <td><a href="/atom.xml" target="_blank" title="rss"><i class="fa fa-rss"></i></a></td>
-        <span>rss</span>
+        <%= site.tags.length %>
+        <span><%= (site.tags.length > 1 ? __('profile.tags') : __('profile.tag')) %></span>
       </div>
     </div>
     <% if(theme.contacts) { %>
