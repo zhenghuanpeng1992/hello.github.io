@@ -69,10 +69,10 @@ theme: icarus
 ######################## hexo-theme-icarus #############################
 
 avatar: /img/avatar.png
-location: 'Shenzhen & Guangzhou, China'
+location: 'Shenzhen, China'
 #follow: https://github.com/zhengxiaopeng/ #改为 High一下
 duoshuo_shortname: rocko
-author_title: 'Android Developer & Student'
+author_title: 'Android Developer'
 
 ######################## hexo-theme-icarus #############################
 

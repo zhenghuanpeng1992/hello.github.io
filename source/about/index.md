@@ -10,9 +10,11 @@ banner: http://rocko-blog.qiniudn.com/androidv.jpg
 ``` wtf
 // coding
 ```
-  
 
 <br/>
+
+---------------------------
+
 
 - <i class="fa fa-envelope"></i> **email** 
  [rocko.zxp@gmail.com](mailto:rocko.zxp@gmail.com)
@@ -35,7 +37,7 @@ banner: http://rocko-blog.qiniudn.com/androidv.jpg
 
 
 - <i class="fa fa-map-marker"></i> **location** 
- Shenzhen & Guangzhou, China
+ Shenzhen, China
 
 - <i class="fa fa-graduation-cap"></i> **university** 
  GDUT
@@ -43,6 +45,7 @@ banner: http://rocko-blog.qiniudn.com/androidv.jpg
 - <i class="fa fa-user"></i> **status** 
  Student
 
+---------------------------
 - <i class="fa fa-credit-card"></i> **打赏我**
 	如果觉得我的博客，或者我的分享对您有帮助，不妨随意打赏下吧，我将更有动力。
 	
