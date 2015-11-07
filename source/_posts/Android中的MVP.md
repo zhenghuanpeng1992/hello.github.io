@@ -1,7 +1,7 @@
 title: Android中的MVP
 date: 2015-02-06 12:28:48
 category: Android
-tags: [MVP]
+tags: [MVP， 架构]
 toc: true
 ---
 
@@ -9,19 +9,18 @@ toc: true
 MVP作为一种MVC的演化版本在Android开发中受到了越来越多的关注，但在项目开发中选择一种这样的软件设计模式需保持慎重心态，一旦确定使用MVP作为你App的开发模式那么你就最好坚持做下去，如果在使用MVP模式开发过程中发现问题而且坑越来越大，这时你想用MVC等来重新设计的话基本上就等于推倒重来了。要知道在Android上MVP在现在为止并没有统一的标准或者框架，不像SSH这三个成熟稳重强而有力的三剑客支持推动着Java EE的开发，所以在运用MVP时一定要做好自己的理解，并且尽量预知自己App各模块的需求（客户说改改改，我们就改改改 :-( ）以便提前做好充分的设计工作。当然MVP既然能出现那么必然有它的优点的，不然谁会理会这个冒出来的东西，下面就对Android中MVP做一些阐述。
 
 ## MVP简介
-相信大家对MVC都是比较熟悉了：`M-Model-模型`、`V-View-视图`、`C-Controller-控制器`，MVP作为MVC的演化版本，那么类似的MVP所对应的意义：`M-Model-模型`、`V-View-视图`、`P-Presenter-表示器`。从MVC和MVP两者结合来看，Controlller/Presenter在MVC/MVP中都起着逻辑控制处理的角色，起着控制各业务流程的作用。而MVP与MVC最不同的一点是M与V是不直接关联的也是就Model与View不存在直接关系，这两者之间间隔着的是Presenter层，其负责调控View与Model之间的间接交互，MVP的结构图如下所示，对于这个图理解即可而不必限于其中的条条框框，毕竟在不同的场景下多少会有些出入的。在Android中很重要的一点就是对UI的操作基本上需要异步进行也就是在MainThread中才能操作UI，所以对View与Model的切断分离是合理的。此外Presenter与View、Model的交互使用接口定义交互操作可以进一步达到松耦合也可以通过接口更加方便地进行单元测试。
+相信大家对MVC都是比较熟悉了：`M-Model-模型`、`V-View-视图`、`C-Controller-控制器`，MVP作为MVC的演化版本，也是作为用户界面（用户层）的实现模式，那么类似的MVP所对应的意义：`M-Model-模型`、`V-View-视图`、`P-Presenter-表示器`。从MVC和MVP两者结合来看，Controlller/Presenter在MVC/MVP中都起着逻辑控制处理的角色，起着控制各业务流程的作用。而MVP与MVC最不同的一点是M与V是不直接关联的也是就Model与View不存在直接关系，这两者之间间隔着的是Presenter层，其负责调控View与Model之间的间接交互，MVP的结构图如下所示，对于这个图理解即可而不必限于其中的条条框框，毕竟在不同的场景下多少会有些出入的。在Android中很重要的一点就是对UI的操作基本上需要异步进行也就是在MainThread中才能操作UI，所以对View与Model的切断分离是合理的。此外Presenter与View、Model的交互使用接口定义交互操作可以进一步达到松耦合也可以通过接口更加方便地进行单元测试。
 ![MVP结构图](http://rocko-blog.qiniudn.com/Android中的MVP_1.png)
 
 <!--more-->
 
 ## MVP之Model
-模型这一层之中做的工作是具体业务逻辑处理的实现，都伴随着程序中各种数据的处理，复杂一些的就明显需要实现一个Interface来松耦合了。
-
+Model 是用户界面需要显示数据的抽象，也可以理解为从业务数据（结果）那里到用户界面的抽象。本文 Demo 为了简单处理就直接把业务放到了 Model 之中。
 ## MVP之View
 视图这一层体现的很轻薄，负责显示数据、提供友好界面跟用户交互就行。MVP下Activity和Fragment体现在了这一层，Activity一般也就做加载UI视图、设置监听再交由Presenter处理的一些工作，所以也就需要持有相应Presenter的引用。例如，Activity上滚动列表时隐藏或者显示Acionbar（Toolbar），这样的UI逻辑时也应该在这一层。另外在View上输入的数据做一些判断时，例如，EditText的输入数据，假如是简单的非空判断则可以作为View层的逻辑，而当需要对EditText的数据进行更复杂的比较时，如从数据库获取本地数据进行判断时明显需要经过Model层才能返回了，所以这些细节需要自己掂量。
 
 ## MVP之Presenter
-Presenter这一层处理着程序各种逻辑的分发，收到View层UI上的反馈命令、定时命令、系统命令等指令后分发处理逻辑交由Model层做具体的业务操作。
+Presenter这一层处理着程序各种逻辑的分发，收到View层UI上的反馈命令、定时命令、系统命令等指令后分发处理逻辑交由业务层做具体的业务操作，然后将得到的 Model 给 View 显示。
 
 ## 演示demo
 动手写起代码来才有更好的感觉。demo很简单,还是上个图更直观，输入城市的代号，点击按钮获取城市的天气信息然后显示出来，网络操作使用Volley框架，解析用Gson，其它的就手写了。整个项目的包设计如下：
