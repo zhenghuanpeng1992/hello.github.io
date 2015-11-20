@@ -7,11 +7,20 @@
     <% } %>
     <header class="archive-article-header">
       <%- partial('post/title', {class_name: 'archive-article-title'}) %>
-      <% if(archive) { %>
+
+      <div class="article-meta">
+      
+        <% if(archive) { %>
         <%- partial('post/date', {class_name: 'archive-article-date', date_format: 'MMM D'}) %>
-      <% } else { %>
-        <%- partial('post/date', {class_name: 'archive-article-date', date_format: 'YYYY MMM D'}) %>
-      <% } %>
+        <% } else { %>
+          <%- partial('post/date', {class_name: 'archive-article-date', date_format: 'YYYY MMM D'}) %>
+        <% } %>
+
+        <!-- 评论、访问统计部分，不蒜子 -->
+        <%- partial('post/comment') %>  
+      </div>
+      
+     
     </header>
   </div>
 </article>

@@ -1,11 +1,36 @@
 <footer id="footer">
+
+<!--
+
+  <% if (theme.busuanzi){  %>
+    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  <% } %>
+-->
+  
   <% if (theme.sidebar === 'bottom'){ %>
     <%- partial('_partial/sidebar') %>
   <% } %>
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; <% if (config.since && config.since != date(new Date(), 'YYYY')){ %><%= config.since %> - <% } %><%= date(new Date(), 'YYYY') %>  <%= config.author || config.title %> <i class="fa fa-heartbeat"></i> <br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice/hexo-theme-icarus">PPOffice</a>
+      &copy; <% if (config.since && config.since != date(new Date(), 'YYYY')){ %><%= config.since %> - <% } %><%= date(new Date(), 'YYYY') %>  <%= config.author || config.title %> <i class="fa fa-heartbeat"></i> 
+
+<!--
+      <% if (theme.busuanzi){  %> 
+         <span id="busuanzi_container_site_pv" style='display:none'>  Site PV <a href="http://service.ibruce.info/" target="_ibruce"> <span id="busuanzi_value_site_pv"></span> </a> times
+         </span>
+         <% } %>
+-->
+      <br>
+
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme by <a href="https://github.com/ppoffice/hexo-theme-icarus">PPOffice</a>
+
+        
+
     </div>
+
+   
+
+   
+
   </div>
 </footer>

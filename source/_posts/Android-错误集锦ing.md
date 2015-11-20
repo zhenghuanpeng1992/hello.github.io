@@ -5,7 +5,7 @@ tags: [错误]
 
 ---
 Fork from my csdn blog: [Android 错误集锦(ing...)](http://blog.csdn.net/bbld_/article/details/39520249).
-Last update time: *2015-8-22 14:47:39*.   
+Last update time: *2015-11-12 09:06:12*.   
    
 
 温馨提示：`Ctrl+F查找`
@@ -394,6 +394,29 @@ Couldn't find idegen.jar. Please run make first.
 可以直接在 `源码路径` 下执行 idegen.jar 的命令，`idegen.jar` 的路径换成你的位置
 ``` Bash
 java -cp /repo/aosp/output/android-5.1.1_r12/host/linux-x86/framework/idegen.jar Main
+```
+
+---
+
+
+**系统环境：**
+Ubuntu 14.04 64 位 Android Studio 1.3.2
+**问题描述：**
+RSA 加解密，Android 端和 Java 服务器端加解密方式不一致问题。
+**错误提示：**
+``` Bash
+javax.crypto.BadPaddingException: Blocktype mismatch: 0
+    at sun.security.rsa.RSAPadding.unpadV15(RSAPadding.java:311)
+    at sun.security.rsa.RSAPadding.unpad(RSAPadding.java:255)
+    at com.sun.crypto.provider.RSACipher.a(DashoA13*..)
+    at com.sun.crypto.provider.RSACipher.engineDoFinal(DashoA13*..)
+    at javax.crypto.Cipher.doFinal(DashoA13*..)
+```
+**解决方案：**
+PublicKey、PrivateKey 获取（KeyPairGenerator）仍为 RSA，Cipher 生成方式修改如下
+``` Java
+Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding"); // 1 推荐
+Cipher cipher = Cipher.getInstance("RSA/ECB/NoPadding"); // 2 解密后会有空格，需 trim 去掉
 ```
 
 ---

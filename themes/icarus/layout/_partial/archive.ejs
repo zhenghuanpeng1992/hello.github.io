@@ -1,4 +1,5 @@
 <% switch (type) {
+
     case 'archive':
     var last;
     page.posts.each(function(post, i){
@@ -8,9 +9,10 @@
         </div></section>
       <% }
       last = year; %>
-      <div class="archive-year-wrap">
+      <div class="archive-year-wrap"> 
         <a href="<%- url_for('archives/' + year) %>" class="archive-year"><%= year %></a>
       </div>
+       
       <section class="archives-wrap">
         <div class="archives">
     <% } %>
@@ -28,6 +30,9 @@
       </nav>
     <% }
     break;
+
+
+
   case 'category': %>
     <section class="archives-wrap">
     <div class="archive-category-wrap">
@@ -47,6 +52,9 @@
       </nav>
     <% }
     break;
+
+
+
   case 'tag': %>
     <section class="archives-wrap">
     <div class="archive-tag-wrap">
@@ -66,6 +74,9 @@
       </nav>
     <% }
     break;
+
+
+
   default:
     page.posts.each(function(post){ %>
       <%- partial('article', {post: post, index: true}) %>
@@ -79,4 +90,5 @@
       </nav>
     <% }
     break;
+
 } %>

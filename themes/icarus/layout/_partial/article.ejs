@@ -10,6 +10,9 @@
         <div class="article-meta">
           <%- partial('post/date', {class_name: 'article-date', date_format: null}) %>
           <%- partial('post/category') %>
+          <!-- 评论、访问统计部分，不蒜子 -->
+          <%- partial('post/comment') %>
+          
         </div>
       </header>
     <% } %>
@@ -31,6 +34,10 @@
         <%- post.content %>
       <% } %>
     </div>
+    
+   <!-- 加入打赏 -->
+   <%- partial('post/reward') %>
+
     <footer class="article-footer">
       <a data-url="<%- post.permalink %>" data-id="<%= post._id %>" class="article-share-link"><%= __('article.share') %></a>
       <% if (post.comments && config.disqus_shortname){ %>

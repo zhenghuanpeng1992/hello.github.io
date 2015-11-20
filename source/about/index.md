@@ -44,9 +44,3 @@ banner: http://rocko-blog.qiniudn.com/androidv.jpg
 
 - <i class="fa fa-user"></i> **status** 
  Student
-
----------------------------
-- <i class="fa fa-credit-card"></i> **打赏我**
-	如果觉得我的博客，或者我的分享对您有帮助，不妨随意打赏下吧，我将更有动力。
-	
-	![支付宝||微信](http://rocko-blog.qiniudn.com/zhifubao_weixin.jpg?imageView2/2/w/800/h/400/q/100)

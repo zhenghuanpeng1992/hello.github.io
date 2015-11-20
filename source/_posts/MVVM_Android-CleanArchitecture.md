@@ -11,7 +11,9 @@ toc: true
 
 "Architecture is About Intent, not Frameworks"    - [Robert C. Martin (Uncle Bob)](http://cleancoder.com/)
 
-Uncle Bob 的这句话套在 MVVM 上也是适用的, MVVM 也仅仅是架构`模式`（Architectural pattern），其有一套自己的理论概念（pattern）而不是规定的具体实现（或 Frameworks）。早之前在知乎上相关问题的回答（[android UI设计MVVM设计模式讨论？](http://www.zhihu.com/question/30976423/answer/50181505)）中也简单提到过 MVVM 了，M-V-X 的关系如上图，那么这一次博主把 [Fernando Cejas(android10)](https://github.com/android10) 的 [Android-CleanArchitecture](https://github.com/android10/Android-CleanArchitecture) 项目中的 MVP 实现重构成了用 MVVM 来实现。整个历程也算比较愉快，没什么不良反应，这篇文章理所当然会重点说说 MVVM 的实现、 Data Binding 等相关的东西。那为什么拥抱 MVVM 呢。当然是 Google 推出官方的 [data binding](https://developer.android.com/tools/data-binding/guide.html) 啦，下一次的 Android MVVM 热潮应该就是 data binding 放出正式版了。
+Uncle Bob 的这句话套在 MVVM 上也是适用的, MVVM 也仅仅是架构`模式`（Architectural pattern），其有一套自己的理论概念（pattern）而不是规定的具体实现（或 Frameworks）。早之前在知乎上相关问题的回答（[android UI设计MVVM设计模式讨论？](http://www.zhihu.com/question/30976423/answer/50181505)）中也简单提到过 MVVM 了，M-V-X 的关系如上图，那么这一次博主把 [Fernando Cejas(android10)](https://github.com/android10) 的 [Android-CleanArchitecture](https://github.com/android10/Android-CleanArchitecture) 项目中的 MVP 实现重构成了用 MVVM 来实现。所以看这篇文章最好是先搞清了 [Fernando Cejas(android10)](https://github.com/android10) 的 [Android-CleanArchitecture](https://github.com/android10/Android-CleanArchitecture) sample app 和对应的两篇文章（见参考）。整个历程也算比较愉快，没什么不良反应，这篇文章理所当然会重点说说 MVVM 的实现、 Data Binding 等相关的东西。那为什么拥抱 MVVM 呢。当然是 Google 推出官方的 [data binding](https://developer.android.com/tools/data-binding/guide.html) 啦，下一次的 Android MVVM 热潮应该就是 data binding 放出正式版了。
+
+<!--more-->
 
 ## 分层架构与 M-V-X
 
@@ -45,7 +47,7 @@ Uncle Bob 的这句话套在 MVVM 上也是适用的, MVVM 也仅仅是架构`�
 个人、团队喜好，代码简洁了很多但是代码的逻辑比较不好直观理解了，原项目也只有 3 处代码用到，故而去掉了。
 
 
-此外，对于领域驱动设计（DDD）中 Repository，原项目中把其实现放到了 data 层去实现，造成 data 层会依赖其上一层（domain 业务层），作为分层架构个人认为不合适所以重新把它调整了，这其中应该是使用了依赖注入造成的。根据 DDD，个人认为 Repository 它的存在让领域层（domain 业务）感觉不到数据访问层的存在，它提供一个类似集合的接口提供给领域层进行领域对象的访问。Repository 是仓库管理员，领域层需要什么东西只需告诉仓库管理员，由仓库管理员把东西拿给它，并不需要知道东西实际放在哪。
+此外，对于领域驱动设计（DDD）中 Repository，原项目中把其实现放到了 data 层去实现（接口），造成 data 层会依赖其上一层（domain 业务层），作为分层架构个人认为不合适所以重新把它调整了。根据 DDD，个人认为 Repository 它的存在让领域层（domain 业务）感觉不到数据访问层的存在，它提供一个类似集合的接口提供给领域层进行领域对象的访问。Repository 是仓库管理员，领域层需要什么东西只需告诉仓库管理员，由仓库管理员把东西拿给它，并不需要知道东西实际放在哪。
 
 ## MVVM
 
@@ -54,13 +56,13 @@ Uncle Bob 的这句话套在 MVVM 上也是适用的, MVVM 也仅仅是架构`�
 
 按照常理，先来说基本概念：
 
-- Model，domain model（领域模型）或是数据层代表的数据模型，也可以理解为用户界面需要显示数据的抽象（数据）
+- Model，domain model（领域模型）或是数据层代表的数据模型，也可以理解为用户界面需要显示数据的抽象（数据）。(Business rule, data access, model classes)
 
 - View， 应用的界面
 
 - ViewModel，binder 所在之处，是 View 的抽象，对外暴露出公共属性和命令，是 View 与 Model 的（绑定）连接器
 
-此外还有必不可少的一部分：Binder，Android 中也就是 Data binding 了，提供 View 与 Model 的绑定功能。下面是结构图：
+此外还有必不可少的一部分：Binder，Android 中也就是 Data binding 了，提供 View 与 Model 的绑定功能，所以 Model-View-ViewModel 又称为 `Model-View-Binder`。 与 MVP 中的 Presenter 相比，ViewModel 并不需要去持有 View 的引用，下面是结构图：
 
 ![MVVM结构图](http://rocko-blog.qiniudn.com/MVVM_Android-CleanArchitecture-1.png)
 
@@ -140,8 +142,8 @@ Talk is cheap. Show you the code. **↓↓↓**
 
 ## 参考
 [企业应用架构模式](http://book.douban.com/subject/4826290/)
-[Architecting Android…The clean way?](http://fernandocejas.com/2014/09/03/architecting-android-the-clean-way/)
-[Architecting Android…The evolution](http://fernandocejas.com/2015/07/18/architecting-android-the-evolution/)
+[Architecting Android…The clean way?](http://fernandocejas.com/2014/09/03/architecting-android-the-clean-way/) （Android-CleanArchitecture 的文章，译文略）
+[Architecting Android…The evolution](http://fernandocejas.com/2015/07/18/architecting-android-the-evolution/) （Android-CleanArchitecture 的文章，译文略）
 [Approaching Android with MVVM](https://getpocket.com/a/read/1048441260)
 [ANDROID DATABINDING: GOODBYE PRESENTER, HELLO VIEWMODEL!](http://tech.vg.no/2015/07/17/android-databinding-goodbye-presenter-hello-viewmodel/)
 

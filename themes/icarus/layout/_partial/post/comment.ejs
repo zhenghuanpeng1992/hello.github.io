@@ -1,0 +1,16 @@
+<!-- 不蒜子统计 -->
+<% if (theme.busuanzi){ %>
+    <div class="article-category" >
+        <i class="fa fa-commenting"></i>
+        <a href= "<%= post.permalink %>#comments">
+            <% if (post.excerpt && index){ %>  <!-- 文章导航 -->
+                       <span class="ds-thread-count" data-thread-key="<%= post.path %>-<%= post.slug %>" data-title="<%= post.title %>" data-url="<%= post.permalink %>" data-author-key="1" ><i class="fa fa-spinner fa-spin"></i>
+            <% } else {%> <!-- 文章正文 -->
+                       <span class="ds-thread-count" data-thread-key="<%= page.path %>-<%= page.slug %>" data-title="<%= page.title %>" data-url="<%= page.permalink %>" data-author-key="1" ><i class="fa fa-spinner fa-spin"></i>   
+            <% } %>
+        </a>  
+    </div>  
+
+<% } %>
+
+          
